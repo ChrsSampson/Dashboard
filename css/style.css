@@ -1,0 +1,107 @@
+/* Import Fonts */
+/* Google Font 'Noto Sans SC' 400 / 100 and 'Assistant' 100 */
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200&family=Noto+Sans+SC:wght@100;400&display=swap');
+
+/* Typography */
+*{
+    font-family: 'Noto Sans SC', sans-serif;
+}
+span{
+    font-family: 'Assistant', sans-serif;
+}
+
+
+/* Root Styles */
+
+body{
+    margin:0;
+}
+
+/* header */
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+     background-color: #ed651d;
+     color: #eee;
+}
+header h1{
+    margin:0;
+}
+
+#profile-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+#bell-icon{
+    height: 20px;
+    width: 20px;
+    border-right:1px solid #20272F;
+    margin-right: 10px;
+    padding-right: 10px;
+}
+#profile-img{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: none;
+}
+
+/* Navigation */
+nav{
+    background-color: #bd561f;
+}
+#nav-list{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    height: 40px;
+    list-style: none;
+    margin: 0;
+    padding-top: 5px;
+    padding-left: 0;
+}
+.nav-link{
+    height: 30px;
+    width: 30px;
+}
+
+/* Main Content */
+main{
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* Graph Containers */
+#pie-header h3, #bar-header h3{
+    text-align: center;
+}
+.graph-wrapper{
+    margin: 0 10px 0 10px;
+}
+
+/* Line Container */
+#line-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#line-header ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+#line-header li{
+    font-family: 'Assistant', sans-serif;
+    font-weight: 100;
+
+    margin-left:5px;
+}

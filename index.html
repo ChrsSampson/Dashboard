@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- style.css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awsome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <!-- app.js -->
+    <script src="js/app.js"></script>
+    <title>DashBordio</title>
+</head>
+<body>
+<!-- Framework -->
+    <header>
+        <h1>Dash<span>Bordio</span></h1>
+        <div id="profile-container">
+            <img id="bell-icon" src="icons/icon-bell.svg">
+            <img id="profile-img" src="images/member-1.jpg">
+            <h4>Username</h4>
+        </div>
+    </header>
+
+    <nav>
+        <ul id="nav-list">
+            <li><img class="nav-link" src="/icons/icon-dashboard.svg"></li>
+            <li><img class="nav-link" src="/icons/icon-members.svg"></li>
+            <li><img class="nav-link" src="/icons/icon-visits.svg"></li>
+            <li><img class="nav-link" src="/icons/icon-settings.svg"></li>
+        </ul>
+    </nav>
+<!-- Main Content Grid -->
+    <main id="content-wrapper">
+
+        <section class="graph-wrapper" id="line-wrapper">
+            <div class="graph header" id="line-header">
+                <h3>Traffic</h3>
+                <ul>
+                    <li>Hourly</li>
+                    <li>Daily</li>
+                    <li>Weekly</li>
+                    <li>Monthly</li>
+                </ul>
+            </div>    
+            <canvas id="line-chart"></canvas>
+        </section>
+
+        <section class="graph-wrapper" id="bar-wrapper">
+            <div class="graph header" id="bar-header">
+                <h3>Daily Traffic</h3>
+            </div>    
+            <canvas id="bar-chart"></canvas>
+        </section>
+
+        <section class="graph-wrapper" id="pie-wrapper">
+            <div class="graph header" id="pie-header">
+                <h3>Mobile Users</h3>
+            </div>    
+            <canvas id="pie-chart"></canvas>
+        </section>
+
+    </main>
+
+</body>
+</html>
