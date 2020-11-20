@@ -174,10 +174,12 @@ main{
     grid-template-columns: 3em auto;
     grid-template-rows: 1em 2em;
 
-    background-color: lightgray;
+    background-color: rgb(255, 232, 221);
+    border:1px solid #737373;
     margin-bottom: 10px;
     padding:5px;
-    min-width: 80%;
+    min-width: 90%;
+    border-radius: 5px;
 
     text-align: left;
 }
