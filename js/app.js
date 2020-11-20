@@ -37,6 +37,23 @@ function randomData(sets, max){
     return data;
 }
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
+function createSocialData(){
+    const twitter = document.getElementById('twitter-data');
+    const facebook = document.getElementById('facebook-data');
+    const google = document.getElementById('google-data');
+    const target = [twitter,facebook,google];
+
+    for(let i = 0; i < target.length; i++){
+        let data = Math.floor(Math.random() * 10000);
+        target[i].innerHTML = numberWithCommas(data);   
+    }
+}
+
 //Graph Objects
 let lineGraph = {
     target:'line-chart', 
@@ -186,6 +203,8 @@ window.addEventListener('DOMContentLoaded', (e)=>{
     createGraph(lineGraph);
     createGraph(barGraph);
     createGraph(pieGraph);
+
+    createSocialData();
 
     createListItems('member');
     createListItems('activity');
