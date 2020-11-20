@@ -3,10 +3,10 @@
 function createGraph(graph){
     var ctx = document.getElementById(graph.target).getContext('2d');
     var chart = new Chart(ctx, {
-        // The type of chart we want to create
+        // The type of chart
         type: graph.type,
 
-        // The data for our dataset
+        // The dataset
         data: {
             labels: graph.labels,
             datasets: [{
@@ -117,50 +117,77 @@ let pieGraph = {
     }
 }
 
-//Initialize Graphs on Page load
+//user objects
+const member1={ img:'images/member-1.jpg',
+                email:'victoria.chambers@example.com',
+                name:'Victoria Chambers',
+                date:'10/15/21',
+                activity:'commented on this Apps SEO Tips',
+                hour:'4 Hours Ago'}
+    
+const member2={ img:'images/member-2.jpg',
+                email:'dayle.byrd@example.com',
+                name:'Dale Byrd',
+                date:'10/15/21',
+                activity:'commented on this Apps SEO Tips',
+                hour:'4 Hours Ago'}
+                
+const member3={ img:'images/member-3.jpg',
+                email:'dawn.wood@example.com',
+                name:'Dawn Wood',
+                date:'10/15/21',
+                activity:'commented on this Apps SEO Tips',
+                hour:'4 Hours Ago'}
+
+const member4={ img:'images/member-4.jpg',
+                email:'dan.oliver@example.com',
+                name:'Dan Oliver',
+                date:'10/15/21',
+                activity:'posted this Apps SEO Tips',
+                hour:'6 Hours Ago'}
+
+// Function accepts Type string of 'members' or 'activity'
+function createListItems(type){
+    if(type == 'member'){
+        const list = document.getElementById('member-ul');
+        const users = [member1, member2, member3, member4]
+        for(let i = 0; i < users.length; i++){
+            let listItem = document.createElement("li");
+            listItem.className = "member-listItem"
+            listItem.innerHTML = `  <img class="user-img" src="${users[i].img}">
+                                    <h5>${users[i].name}</h5>
+                                    <p>${users[i].email}</p>
+                                    <label>${users[i].date}</label>
+                                `;
+            list.appendChild(listItem);
+        }
+    }
+    else if (type == 'activity'){
+        const list = document.getElementById('activity-ul');
+        const users = [member1, member2, member3, member4]
+        for(let i = 0; i < users.length; i++){
+            let listItem = document.createElement("li");
+            listItem.className = "activity-listItem"
+            listItem.innerHTML = `  <img class="user-img" src="${users[i].img}">
+                                    <h5>${users[i].name} ${users[i].activity}</h5>
+                                    <p>${users[i].hour}</p>
+                                    <i class="fas fa-chevron-right"></i>
+                                `;
+            list.appendChild(listItem);
+        }
+
+    }
+
+}
+
+
+//Initialize Elements on Page load
 window.addEventListener('DOMContentLoaded', (e)=>{
     createGraph(lineGraph);
     createGraph(barGraph);
     createGraph(pieGraph);
 
-    createList()
+    createListItems('member');
+    createListItems('activity');
     
 });
-
-
-//user objects
-const member1={ img:'images/member-1.jpg',
-                email:'victoria.chambers@example.com',
-                name:'Victoria Chambers',
-                date:'10/15/21'}
-    
-const member2={ img:'images/member-2.jpg',
-                email:'dayle.byrd@example.com',
-                name:'Dale Byrd',
-                date:'10/15/21'}
-                
-const member3={ img:'images/member-3.jpg',
-                email:'dawn.wood@example.com',
-                name:'Dawn Wood',
-                date:'10/15/21'}
-
-const member4={ img:'images/member-4.jpg',
-                email:'dan.oliver@example.com',
-                name:'Dan Oliver',
-                date:'10/15/21'}
-
-function createList(){
-    const list = document.getElementById('member-ul');
-    const users = [member1, member2, member3, member4]
-    for(let i = 0; i < users.length; i++){
-        let listItem = document.createElement("li");
-        listItem.className = "member-listItem"
-        listItem.innerHTML = `  <img class="user-img" src="${users[i].img}">
-                                <h5>${users[i].name}</h5>
-                                <p>${users[i].email}</p>
-                                <label>${users[i].date}</label>
-                            `;
-        list.appendChild(listItem);
-    }
-
-}

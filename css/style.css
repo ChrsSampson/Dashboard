@@ -2,20 +2,33 @@
 /* Google Font 'Noto Sans SC' 400 / 100 and 'Assistant' 100 */
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200&family=Noto+Sans+SC:wght@100;400&display=swap');
 
-/* Typography */
+
+/* Typography....I guess */
 *{
     font-family: 'Noto Sans SC', sans-serif;
 }
 span{
     font-family: 'Assistant', sans-serif;
 }
+.widget-header{
+    text-align: center;
+}
 
 
 /* Root Styles */
-
 body{
     margin:0;
 }
+
+    /* borders */
+section{
+    border-top: 1px solid rgba(97, 97 , 97, .5);
+    margin: 10px 10px 0 10px;
+}
+section:first-child{
+    border-top: none;
+}
+
 
 /* header */
 header{
@@ -51,6 +64,7 @@ header h1{
     display: none;
 }
 
+
 /* Navigation */
 nav{
     background-color:#737373;
@@ -72,6 +86,7 @@ nav{
     width: 30px;
 }
 
+
 /* Main Content */
 main{
     display: flex;
@@ -79,13 +94,8 @@ main{
 
 }
 
+
 /* Graph Containers */
-#pie-header h3, #bar-header h3{
-    text-align: center;
-}
-.graph-wrapper{
-    margin: 0 10px 0 10px;
-}
 .graph-wrapper label{
     font-family: 'Assistant', sans-serif;
     font-weight: 100;
@@ -131,7 +141,6 @@ main{
 
     display: flex;
     flex-direction: column;
-   
 }
 .legend-item{
     display: flex;
@@ -151,8 +160,9 @@ main{
     background-color: rgb(38, 125, 217);
 }
 #legend-desktop{
-    background-color: #737373;
+    background-color:  #737373;
 }
+
 
 /* Social Containers */
 #social-wrapper{
@@ -202,8 +212,9 @@ main{
     margin:5px;
 }
 
+
 /* New Member Container */
-#member-ul{
+#member-ul, #activity-ul{
     list-style: none;
     padding-left: 0;
 }
@@ -213,12 +224,15 @@ main{
     grid-template-rows: 50% 50%;
     /* place-items: center; */
 
+    padding: 5px 0 5px 0;
     border-bottom: 1px solid lightgray;
 }
-.member-listItem:last-child{
+.member-listItem:last-child, .activity-listItem:last-child{
     border-bottom: none;
+    padding-top:5px;
 }
-.member-listItem h5, .member-listItem p{
+.member-listItem h5, .member-listItem p,
+.activity-listItem h5, .activity-listItem p{
     margin: 0;
 }
 .user-img{
@@ -237,7 +251,7 @@ main{
     margin:auto 0;
     font-family: 'Assistant', sans-serif;
 }
-.member-listItem p{
+.member-listItem p, .activity-listItem p{
     grid-row: 2 / 3;
     grid-column: 2 / 3;
 
@@ -250,5 +264,142 @@ main{
 
     font-weight: 400;
     font-size: small;
-    color: #ed651d;
+    color: grey;
 }
+.member-listItem p{
+    color: rgb(28, 97, 172);
+}
+
+
+/* Recent activity  */
+.activity-listItem{
+    display: grid;
+    grid-template-columns: 4em auto 1.5em;
+    grid-template-rows: 50% 50%;
+    /* place-items: center; */
+
+    padding: 5px 0 5px 0;
+    border-bottom: 1px solid lightgray;
+}
+.activity-listItem h5{
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+
+    font-weight: 400;
+    font-size: small;
+    color: grey;
+    padding:0 10px 0 0;
+}
+i{
+    color:rgb(38, 125, 217);
+    margin: auto 0;
+    
+}
+
+
+/* Message User */
+#message-container{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+#user-seach{
+   height:20px;
+   width: 90%;
+   margin-bottom: 5px;
+   border-radius: 5px; 
+   border: 1px solid grey;
+}
+#user-message{
+    height: 80px;
+    width:90%;
+    border-radius: 5px;
+    border: 1px solid grey; 
+}
+#message-send{
+    margin-top: 5px;
+    width: 92%;
+    height:30px;
+    border-radius: 5px;
+    border: 1px solid white;
+
+    color: white;
+    font-size: larger;
+    background-color: #ed651d; 
+}
+
+
+/* Settings */
+#setting-wrapper{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+#setting-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    grid-row-gap: 10px;
+    width: 90%;
+    margin-bottom: 15px;
+}
+#email{
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    margin:auto 5px;
+}
+#public{
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    margin:auto 5px;
+    
+}
+#email-switch{
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    margin:auto 0;
+    padding-right:50%;
+}
+#public-switch{
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    margin:auto 0;
+    padding-right:50%;
+}
+select{
+    height: 30px;
+    width: 90%;
+    font-weight: 200;
+}
+
+#settingBtn-container{
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 5px;
+}
+#setting-save{
+    height:30px;
+    width: 45%;
+
+    background-color: #ed651d;
+    color: white;
+    font-size: large;
+    border-radius: 5px;
+    border:1px solid #ed651d;
+}
+#setting-cancel{
+    height:30px;
+    width: 45%;
+
+    background-color: #737373;
+    color: white;
+    font-size: large;
+    border-radius: 5px;
+    border: 1px solid #737373;
+}
+
+
+
