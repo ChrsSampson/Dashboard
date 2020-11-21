@@ -12,6 +12,8 @@ span{
 }
 .widget-header{
     text-align: center;
+    font-size: small;
+    color: rgba(97, 97 , 97, 1);
 }
 
 
@@ -32,6 +34,8 @@ section:first-child{
 
 /* header */
 header{
+    grid-area: header;
+
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -67,6 +71,8 @@ header h1{
 
 /* Navigation */
 nav{
+    grid-area: nav;
+
     background-color:#737373;
 }
 #nav-list{
@@ -89,6 +95,8 @@ nav{
 
 /* Main Content */
 main{
+    grid-area: content;
+
     display: flex;
     flex-direction: column;
 
@@ -103,6 +111,9 @@ main{
 }
 
 /* Line Container */
+#line-wrapper{
+    grid-area: lineChart;
+}
 #line-header{
     display: flex;
     flex-direction: row;
@@ -120,9 +131,14 @@ main{
 
     margin-left:5px;
 }
-
-
+/* bar chart container */
+#bar-wrapper{
+    grid-area: barChart;
+}
 /* Pie Chart Container */
+#pie-wrapper{
+    grid-area: pieChart;
+}
 #pie-layout{
     display: grid;
     grid-template-columns: 50% 50%;
@@ -166,8 +182,11 @@ main{
 
 /* Social Containers */
 #social-wrapper{
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+
+    grid-area: social;
 }
 .social-container{
     display: grid;
@@ -220,6 +239,9 @@ main{
 
 
 /* New Member Container */
+#member-wrapper{
+    grid-area:member;
+}
 #member-ul, #activity-ul{
     list-style: none;
     padding-left: 0;
@@ -278,6 +300,9 @@ main{
 
 
 /* Recent activity  */
+#activity-wrapper{
+    grid-area: activity;
+}
 .activity-listItem{
     display: grid;
     grid-template-columns: 4em auto 1.5em;
@@ -304,11 +329,14 @@ i{
 
 
 /* Message User */
+#message-wrapper{
+    grid-area: message;
+}
 #message-container{
     display: flex;
     flex-direction: column;
     place-items: center;
-}
+ }
 #user-seach{
    height:20px;
    width: 90%;
@@ -340,6 +368,8 @@ i{
     display: flex;
     flex-direction: column;
     place-items: center;
+
+    grid-area: settings;
 }
 #setting-container{
     display: grid;
@@ -408,4 +438,118 @@ select{
 }
 
 
+/* ------Media Query------ */
+@media(min-width:768px){
+    body{
+        display: grid;
+        grid-template-columns: 10% 90% ;
+        grid-template-rows: 15% 85%;
 
+        grid-template-areas: 
+        "header header"
+        "nav content";
+    }
+    section{
+        border:none;
+        
+    }
+    /* header */
+    header{
+        justify-content: space-between;
+        padding: 0 1em 0 1em;
+    }
+    #profile-img{
+        display: block;
+        margin-right: 1em;
+    }
+    #bell-icon{
+        height:30px;
+        width: 30px;
+    }
+    /* nav bar */
+    #nav-list{
+        flex-direction: column;
+        height: 20%;
+    }
+    .nav-link{
+        height:40px;
+        width: 40px;
+    }
+
+    /* Content Grid */
+    main{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 30% 17% 10% 20% 25%;
+        
+        grid-template-areas:
+        "lineChart lineChart"
+        "barChart pieChart"
+        "social social"
+        "member activity"
+        "message settings"
+        ;
+    }
+    .widget-header{
+        text-align: left;
+        padding-left: 1em;
+    }
+    /* line chart */
+    #line-wrapper{
+        border-bottom: 1px solid rgba(97, 97 , 97, .5);
+    }
+    #line-chart{
+        max-height: 85%;
+        padding-bottom: 1em;
+    }
+    /* bar chart */
+    #bar-wrapper{
+        border-right: 1px solid rgba(97, 97 , 97, .5);
+        margin:0px;
+    }
+    #bar-chart{
+        max-height: 80%;
+        max-width: 99%;
+        margin:0 auto;
+    }
+    /* pie chart */
+    #pie-layout{
+        max-height: 100%;
+        margin:0px;
+    }    
+    /* Social Media */
+    #social-wrapper{
+        display:block;
+        padding-bottom: 7em;
+        margin-top: 0px;
+        border-bottom: 1px solid rgba(97, 97 , 97, .5);
+        border-top: 1px solid rgba(97, 97 , 97, .5);
+    }
+    #social-flex{
+        display: flex;
+        flex-direction: row;
+        margin-left:2%;
+    }
+    .social-container{
+        
+        height: 3em;
+        min-width: 30%;
+        margin-right:1em;
+    }
+    /* New Member */
+    #member-wrapper{
+        border-bottom: 1px solid rgba(97, 97 , 97, .5);
+        border-right: 1px solid rgba(97, 97 , 97, .5);
+        margin:0px;
+        padding:0 5px 0 5px;        
+    }
+    /* Recent Activity */
+    #activity-wrapper{
+        border-bottom: 1px solid rgba(97, 97 , 97, .5);
+        margin:0px;
+        padding:0 5px 0 5px;   
+    }
+    .activity-listItem h5{
+        font-size: 9px;
+    }
+}

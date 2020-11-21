@@ -68,6 +68,7 @@ let lineGraph = {
     pointBorderColor:'rgb(232, 105, 59)',
     pointBackgroundColor:'rgba(255, 255, 255, 1)',
     options:{
+                maintainAspectRatio: false,
                 responsive: true,
                 legend:{
                     display:false,
@@ -95,6 +96,7 @@ let barGraph = {
     borderColor:'rgb(255, 99, 132)',
     data:randomData(7, 300),
     options:{
+        maintainAspectRatio: false,
         responsive: true,
         legend:{
             display:false,
@@ -123,6 +125,7 @@ let pieGraph = {
     borderWidth: 0,
     data:randomData(3, 1000),
     options:{
+        maintainAspectRatio: false,
         responsive: true,
         legend:{
             display:false,
