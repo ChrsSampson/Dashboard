@@ -406,6 +406,7 @@ select{
     height: 30px;
     width: 90%;
     font-weight: 200;
+    padding-left: 20px;
 }
 
 #settingBtn-container{
@@ -436,6 +437,9 @@ select{
     border-radius: 5px;
     border: 1px solid #737373;
 }
+
+
+/* Transition and Animation */
 
 
 /* ------Media Query------ */
@@ -552,4 +556,46 @@ select{
     .activity-listItem h5{
         font-size: 9px;
     }
+    /* Message User */
+    #message-wrapper{
+        border-right:1px solid rgba(97, 97 , 97, .5);
+        margin:0px;
+    }
+    #user-seach{
+        height: 40px;
+        width: 93%;
+        font-size: 15px;
+        padding:0 5px 0 5px;
+    }
+    #user-message{
+        height: 150px;
+        padding:5px 10px 0 10px;
+    }
+    #message-send{
+        height: 40px;
+        width: 98%;
+    }
+    /* Settings */
+    #setting-wrapper{
+        display: block;
+        margin:0px;
+        
+    }
+    #setting-container{
+        height:10em;
+        margin:0 auto;
+        grid-row-gap: 0px;
+    }
+    #setting-timezone{
+        height: 40px;
+        margin-left:5%;
+    }
+    #settingBtn-container{
+        margin:0 auto;
+    }
+    #setting-save, #setting-cancel{
+        margin-top: .6em;
+        height:40px;
+    }
+
 }
