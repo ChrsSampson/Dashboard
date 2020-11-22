@@ -1,58 +1,5 @@
-
-//Draw Graph
-function createGraph(graph){
-    var ctx = document.getElementById(graph.target).getContext('2d');
-    var chart = new Chart(ctx, {
-        // The type of chart
-        type: graph.type,
-
-        // The dataset
-        data: {
-            labels: graph.labels,
-            datasets: [{
-                label: '',
-                backgroundColor: graph.bgColor,
-                borderColor: graph.borderColor,
-                borderWidth: graph.borderWidth,
-                data: graph.data,
-                lineTension: graph.lineTension,
-                pointRadius: graph.pointRadius,
-                pointBorderColor: graph.pointBorderColor,
-                pointBackgroundColor: graph.pointBackgroundColor
-            }]
-        },
-
-        // Configuration options go here
-        options: graph.options,
-       
-    });
-}
-
-//Generate Random Chart Data
-function randomData(sets, max){
-    let data = [];
-    for(let i = 0; i < sets; i++){
-      data[i] = Math.floor(Math.random() * max);   
-    }
-    return data;
-}
-
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-
-function createSocialData(){
-    const twitter = document.getElementById('twitter-data');
-    const facebook = document.getElementById('facebook-data');
-    const google = document.getElementById('google-data');
-    const target = [twitter,facebook,google];
-
-    for(let i = 0; i < target.length; i++){
-        let data = Math.floor(Math.random() * 10000);
-        target[i].innerHTML = numberWithCommas(data);   
-    }
-}
+//Declare Element Selectors
+let alert = document.getElementById('alert-container')
 
 //Graph Objects
 let lineGraph = {
@@ -137,6 +84,65 @@ let pieGraph = {
     }
 }
 
+
+//Draw Graph
+function createGraph(graph){
+    var ctx = document.getElementById(graph.target).getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart
+        type: graph.type,
+
+        // The dataset
+        data: {
+            labels: graph.labels,
+            datasets: [{
+                label: '',
+                backgroundColor: graph.bgColor,
+                borderColor: graph.borderColor,
+                borderWidth: graph.borderWidth,
+                data: graph.data,
+                lineTension: graph.lineTension,
+                pointRadius: graph.pointRadius,
+                pointBorderColor: graph.pointBorderColor,
+                pointBackgroundColor: graph.pointBackgroundColor
+            }]
+        },
+
+        // Configuration options go here
+        options: graph.options,
+       
+    });
+}
+
+
+//Generate Random Chart Data
+function randomData(sets, max){
+    let data = [];
+    for(let i = 0; i < sets; i++){
+      data[i] = Math.floor(Math.random() * max);   
+    }
+    return data;
+}
+
+// Format Social media number
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
+function createSocialData(){
+    const twitter = document.getElementById('twitter-data');
+    const facebook = document.getElementById('facebook-data');
+    const google = document.getElementById('google-data');
+    const target = [twitter,facebook,google];
+
+    for(let i = 0; i < target.length; i++){
+        let data = Math.floor(Math.random() * 10000);
+        target[i].innerHTML = numberWithCommas(data);   
+    }
+}
+
+
 //user objects
 const member1={ img:'images/member-1.jpg',
                 email:'victoria.chambers@example.com',
@@ -212,4 +218,10 @@ window.addEventListener('DOMContentLoaded', (e)=>{
     createListItems('member');
     createListItems('activity');
     
+});
+
+alert.addEventListener('click', (e)=>{
+    if(e.target.getElementById === 'alert-exit'){
+        console.log("poop");
+    }
 });
