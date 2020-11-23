@@ -1,6 +1,7 @@
 //Declare Element Selectors
 let alert = document.getElementById('alert-exit')
-
+let bell = document.getElementById('bell-icon')
+let dropdown = document.getElementById('dropdown')
 //Graph Objects
 let lineGraph = {
     target:'line-chart', 
@@ -226,3 +227,27 @@ alert.addEventListener('click', (e)=>{
     alertDiv.style.height = "0px";
     alertDiv.style.display = "none";
  });
+
+//Dropdown menu
+bell.addEventListener('click', (e)=>{
+    items = document.getElementsByClassName("drop-item")
+
+    if(dropdown.style.display == "none"){
+        dropdown.style.display = "flex";
+        dropdown.style.height = "auto";
+        for(let i=0; i < items.length; i++){
+            items[i].style.color = "rgba(97, 97 , 97, 1)";
+            items[i].style.margin = "10px";
+         }
+    }
+    else{
+        dropdown.style.display = "none";
+        dropdown.style.height = "0px";
+        for(let i=0; i < items.length; i++){
+            items[i].display = "none"
+        }
+    }
+    
+});
+
+

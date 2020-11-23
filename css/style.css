@@ -42,10 +42,14 @@ header{
     align-items: center;
 
      background-color: #ed651d;
-     color: #eee;
+     
 }
 header h1{
+    color: #eee;
     margin:0;
+}
+header h4{
+    color: #eee;
 }
 
 #profile-container{
@@ -60,12 +64,30 @@ header h1{
     border-right:1px solid #20272F;
     margin-right: 10px;
     padding-right: 10px;
+    transition: 500ms;
+    
 }
 #profile-img{
     height: 30px;
     width: 30px;
     border-radius: 50%;
     display: none;
+}
+/* Drop down menu */
+#dropdown{
+    display: none;
+    flex-direction: column;
+    place-items: center;
+    position: absolute;
+    right:150px;
+
+    background-color: white;
+    border:2px solid rgba(97, 97 , 97, 1);
+    border-radius: 5px;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    
 }
 
 
@@ -175,7 +197,6 @@ main{
 
     display: flex;
     flex-direction: column;
-
 }
 
 
@@ -520,7 +541,9 @@ select{
 
 
 /* Transition and Animation */
-
+ #bell-icon:hover{
+     transform: scale(1.1);
+ }
 
 /* ------Media Query------ */
 @media(min-width:768px){
