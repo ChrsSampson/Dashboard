@@ -2,6 +2,7 @@
 let alert = document.getElementById('alert-exit')
 let bell = document.getElementById('bell-icon')
 let dropdown = document.getElementById('dropdown')
+let formatContainer = document.getElementById('chart-format')
 //Graph Objects
 let lineGraph = {
     target:'line-chart', 
@@ -131,6 +132,7 @@ function numberWithCommas(x) {
 }
 
 
+//Create Random Data for Social Widget
 function createSocialData(){
     const twitter = document.getElementById('twitter-data');
     const facebook = document.getElementById('facebook-data');
@@ -221,6 +223,11 @@ window.addEventListener('DOMContentLoaded', (e)=>{
     
 });
 
+//Re-draw Charts on windows resize
+window.addEventListener('resize', (e)=>{
+    
+});
+
 //Dismiss Alert
 alert.addEventListener('click', (e)=>{
     const alertDiv = document.getElementById('alert-container');
@@ -250,4 +257,31 @@ bell.addEventListener('click', (e)=>{
     
 });
 
+//Change chart format based on format buttons
+formatContainer.addEventListener('click', (e)=>{
+    const formatTypes = formatContainer.children;
+    let chart = document.getElementById('line-chart');
+    console.log(e.target);
+    if(e.target.textContent === 'Hourly'){
+        lineGraph.labels = ['10','20','30','40','50'];
+        lineGraph.data = randomData(5, 1000);
+                
+    }
+    else if(e.target.textContent === 'Daily'){
+        lineGraph.labels = ['00','01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24'];
+        lineGraph.data = randomData(25, 1000);
+        
+    }
+    else if(e.target.textContent === 'Weekly'){
+        lineGraph.labels = ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'];
+        lineGraph.data = randomData(11, 1000);
+        
+    }
+    else if(e.target.textContent === 'Monthly'){
+        lineGraph.labels = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
+        lineGraph.data = randomData(12, 1000);
+        
+    }
 
+    createGraph(lineGraph);
+});

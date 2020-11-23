@@ -119,7 +119,7 @@ header h4{
     height: 2em;
     width: 10em;
     border:1px solid white;
-    margin-top: 2%;
+    margin-top: 1%;
  }
 #search-flex{
     height: 2em;
@@ -575,6 +575,10 @@ select{
         width: 25px;
     }
     /* nav bar */
+    nav{
+        max-width: 60px;
+        min-width:45px;
+    }    
     #nav-list{
         flex-direction: column;
         height: 20%;
@@ -706,9 +710,7 @@ select{
 
 @media(min-width:1024px){
 
-    nav{
-        max-width: 90px;
-    }
+    
     /* pie chart */
     #pie-wrapper{
         margin-top:0px;
