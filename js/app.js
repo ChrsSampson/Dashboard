@@ -1,5 +1,5 @@
 //Declare Element Selectors
-let alert = document.getElementById('alert-container')
+let alert = document.getElementById('alert-exit')
 
 //Graph Objects
 let lineGraph = {
@@ -220,8 +220,9 @@ window.addEventListener('DOMContentLoaded', (e)=>{
     
 });
 
+//Dismiss Alert
 alert.addEventListener('click', (e)=>{
-    if(e.target.getElementById === 'alert-exit'){
-        console.log("poop");
-    }
-});
+    const alertDiv = document.getElementById('alert-container');
+    alertDiv.style.height = "0px";
+    alertDiv.style.display = "none";
+ });
