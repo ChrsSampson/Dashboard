@@ -3,6 +3,7 @@ let alert = document.getElementById('alert-exit')
 let bell = document.getElementById('bell-icon')
 let dropdown = document.getElementById('dropdown')
 let formatContainer = document.getElementById('chart-format')
+let userSearch = document.getElementById('user-seach')
 //Graph Objects
 let lineGraph = {
     target:'line-chart', 
@@ -285,3 +286,4 @@ formatContainer.addEventListener('click', (e)=>{
 
     createGraph(lineGraph);
 });
+

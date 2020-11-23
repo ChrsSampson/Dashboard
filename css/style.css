@@ -443,13 +443,13 @@ i{
    width: 90%;
    margin-bottom: 5px;
    border-radius: 5px; 
-   border: 1px solid grey;
+   border:1px solid rgba(97, 97 , 97, .5);
 }
 #user-message{
     height: 80px;
     width:90%;
     border-radius: 5px;
-    border: 1px solid grey; 
+    border:1px solid rgba(97, 97 , 97, .5);
 }
 #message-send{
     margin-top: 5px;
@@ -671,7 +671,7 @@ select{
     }
     #user-seach{
         height: 40px;
-        width: 93%;
+        width: 92%;
         font-size: 15px;
         padding:0 5px 0 5px;
     }
@@ -681,7 +681,7 @@ select{
     }
     #message-send{
         height: 40px;
-        width: 98%;
+        width: 95%;
     }
     /* Settings */
     #setting-wrapper{
@@ -696,6 +696,8 @@ select{
     }
     #setting-timezone{
         height: 40px;
+        border-radius: 5px;
+        border:1px solid rgba(97, 97 , 97, .5);
         margin-left:5%;
     }
     #settingBtn-container{
