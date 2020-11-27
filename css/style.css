@@ -464,6 +464,10 @@ i{
     flex-direction: column;
     place-items: center;
  }
+ #error{
+     display: none;
+     color: red;
+ }
 #user-seach{
    height:20px;
    width: 100%;
@@ -580,6 +584,14 @@ select{
      transform: scale(1.1);
  }
 
+#setting-save:active, #message-send:active{
+    background-color: #913e12;
+}
+#setting-cancel:active{
+    background-color: rgb(75, 75, 75);
+}
+ 
+
 /* ------Media Query------ */
 @media(min-width:768px){
     body{
@@ -645,7 +657,7 @@ select{
     main{
         display: grid;
         grid-template-columns: 50% 50%;
-        grid-template-rows: 26% 17% 10% 20% 25%;
+        grid-template-rows: 26% 18% 10% 20% 25%;
         
         grid-template-areas:
         "lineChart lineChart"

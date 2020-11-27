@@ -224,6 +224,7 @@ window.addEventListener('DOMContentLoaded', (e)=>{
     createListItems('member');
     createListItems('activity');
     populateList();
+    checkStorage();
 });
 
 //Dismiss Alert
@@ -346,3 +347,86 @@ dropContainer.addEventListener('click', (e)=>{
     }
     dropContainer.style.display = "none";
 });
+
+//simulate sending message
+const send = document.getElementById('message-send')
+const userMessage = document.getElementById('user-message');
+const error = document.getElementById('error')
+
+send.addEventListener('click', (e)=>{
+    const inputArray = [userSearch, userMessage];
+    if (userMessage.value == "" || userSearch.value == ""){
+        error.style.display = 'block';
+            if(userMessage.value == ''){
+                userMessage.style.border = "1px solid red";
+            }
+            else if(userSearch.value == ''){
+                userSearch.style.border = "1px solid red";
+            }
+        }
+    
+    else{
+        userMessage.value ="";
+        userSearch.value = "";
+        error.textContent = "Message Sent Successfully";
+        error.style.color = "green";
+        error.style.display = 'block';
+    }
+    
+
+});
+
+
+//Save setting to local storage
+const save = document.getElementById('setting-save');
+const email = document.getElementById('email-checkbox');
+const public = document.getElementById('public-checkbox');
+const time = document.getElementById('setting-timezone');
+const cancel = document.getElementById('setting-cancel');
+
+// read local storage
+function checkStorage(){
+    if(localStorage.getItem("email")=="true"){
+        document.getElementById('email-checkbox').checked = true;
+    }
+    else if(localStorage.getItem("email")=="false"){
+        document.getElementById('email-checkbox').checked = false;
+    }
+    if(localStorage.getItem("public")=="true"){
+        document.getElementById('public-checkbox').checked = true;
+    }
+    else if(localStorage.getItem("public")=="false"){
+        document.getElementById('public-checkbox').checked = false;
+    }
+    time.value = localStorage.getItem("timezone");
+}
+
+save.addEventListener('click', (e)=>{
+        if(email.checked){
+            localStorage.setItem("email", true)
+        }
+        else if (!email.checked){
+            localStorage.setItem("email", false) 
+        }
+        
+        if(public.checked){
+            localStorage.setItem("public", true)
+        }
+        else if (!public.checked){
+            localStorage.setItem("public", false) 
+        }
+    
+     
+        localStorage.setItem('timezone', time.value);
+    
+});
+
+//wipe storage
+cancel.addEventListener('click', (e)=>{
+    localStorage.clear();
+    localStorage.setItem("public", false);
+    localStorage.setItem("email", false);
+});
+
+
+
