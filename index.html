@@ -32,10 +32,11 @@
                 <h4>Username</h4>
             </div>
         </header>
-
+        
         <nav>
             <ul id="nav-list">
-                <li><img class="nav-link" src="icons/icon-dashboard.svg"></li>
+                <div id="nav-indicator"></div>
+                <li><div id="nav-indicator"></div><img class="nav-link" src="icons/icon-dashboard.svg"></li>
                 <li><img class="nav-link" src="icons/icon-members.svg"></li>
                 <li><img class="nav-link" src="icons/icon-visits.svg"></li>
                 <li><img class="nav-link" src="icons/icon-settings.svg"></li>
@@ -66,7 +67,7 @@
                     <ul id="chart-format">
                         <li id="chart-hour">Hourly</li>
                         <li id="chart-day">Daily</li>
-                        <li id="chart-week">Weekly</li>
+                        <li id="chart-week" class="select">Weekly</li>
                         <li id="chart-month">Monthly</li>
                     </ul>
                 </div>
@@ -78,8 +79,10 @@
             <section class="graph-wrapper" id="bar-wrapper">
                 <div class="graph header" id="bar-header">
                     <h3 class="widget-header">Daily Traffic</h3>
+                </div>
+                <div id="bar-container">
+                    <canvas id="bar-chart"></canvas>
                 </div>    
-                <canvas id="bar-chart"></canvas>
             </section>
     <!-- pie chart -->
             <section class="graph-wrapper" id="pie-wrapper">

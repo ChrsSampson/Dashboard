@@ -226,11 +226,6 @@ window.addEventListener('DOMContentLoaded', (e)=>{
     populateList();
 });
 
-//Re-draw Charts on windows resize
-window.addEventListener('resize', (e)=>{
-    
-});
-
 //Dismiss Alert
 alert.addEventListener('click', (e)=>{
     const alertDiv = document.getElementById('alert-container');
@@ -263,8 +258,13 @@ bell.addEventListener('click', (e)=>{
 //Change chart format based on format buttons
 formatContainer.addEventListener('click', (e)=>{
     const formatTypes = formatContainer.children;
+    const chartContainer = document.getElementById('line-container');
     let chart = document.getElementById('line-chart');
     console.log(e.target);
+    for(let i = 0; i < formatTypes.length; i++){
+        formatTypes[i].classList.remove('select');
+    }
+    chart.remove();
     if(e.target.textContent === 'Hourly'){
         lineGraph.labels = ['10','20','30','40','50'];
         lineGraph.data = randomData(5, 1000);
@@ -285,7 +285,10 @@ formatContainer.addEventListener('click', (e)=>{
         lineGraph.data = randomData(12, 1000);
         
     }
-
+    let newChart = document.createElement('canvas')
+    e.target.className = "select";
+    newChart.id = "line-chart";
+    chartContainer.appendChild(newChart);
     createGraph(lineGraph);
 });
 
