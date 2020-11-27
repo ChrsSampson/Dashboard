@@ -305,7 +305,7 @@ function toggleAutoComplete(input) {
     } 
 }
 
-//populate auto list
+//populate auto list container
 function populateList(){
     for(let i = 0; i < memberArray.length; i++){
         item = document.createElement('li');
@@ -336,6 +336,7 @@ userSearch.addEventListener('keyup', (e)=>{
     
 });
 
+// add autocomplete suggestion to input box
 dropContainer.addEventListener('click', (e)=>{
     if(e.target.className = "drop-item"){
         userSearch.value = e.target.textContent;

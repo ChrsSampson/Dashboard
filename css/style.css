@@ -90,7 +90,7 @@ header h4{
     
 }
 #dropdown{
-    right:150px;
+    right:100px;
 }
 
 /* Search bar */
@@ -212,6 +212,7 @@ main{
 /* Line Container */
 #line-wrapper{
     grid-area: lineChart;
+    max-height: 345px;
 }
 #line-header{
     display: flex;
@@ -233,6 +234,9 @@ main{
     font-weight: 100;
 
     margin-left:5px;
+}
+#line-container{
+    max-height: 500px;
 }
 /* bar chart container */
 #bar-wrapper{
@@ -594,6 +598,11 @@ select{
     .nav-link{
         height:40px;
         width: 40px;
+    }
+
+    /* Dropdown  */
+    #dropdown{
+        right:150px;
     }
 
     /* Content Grid */
