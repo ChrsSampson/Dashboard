@@ -4,6 +4,8 @@ let bell = document.getElementById('bell-icon')
 let dropdown = document.getElementById('dropdown')
 let formatContainer = document.getElementById('chart-format')
 let userSearch = document.getElementById('user-seach')
+let dropContainer = document.getElementById('auto-list');
+const autoItem = document.querySelectorAll('.drop-item')
 //Graph Objects
 let lineGraph = {
     target:'line-chart', 
@@ -221,7 +223,7 @@ window.addEventListener('DOMContentLoaded', (e)=>{
 
     createListItems('member');
     createListItems('activity');
-    
+    populateList();
 });
 
 //Re-draw Charts on windows resize
@@ -287,3 +289,56 @@ formatContainer.addEventListener('click', (e)=>{
     createGraph(lineGraph);
 });
 
+
+//Auto Complete Variables
+const memberArray = [member1,member2,member3,member4];
+let listItems = dropContainer.children;
+
+//hide show and hide auto complete list
+function toggleAutoComplete(input) {
+    if (!input == ''){
+        dropContainer.style.display = "block";
+    }
+    else{
+        dropContainer.style.display = "none";
+        
+    } 
+}
+
+//populate auto list
+function populateList(){
+    for(let i = 0; i < memberArray.length; i++){
+        item = document.createElement('li');
+        item.textContent = memberArray[i].name
+        item.className = 'drop-item';
+        item.style.display = 'none';
+        dropContainer.appendChild(item);
+    }
+}
+
+//autoComplete
+userSearch.addEventListener('keyup', (e)=>{
+    let input = userSearch.value.toLowerCase();
+    
+    //Hide/Show Drop Down
+    toggleAutoComplete(input);
+    
+    for(let i = 0; i < listItems.length; i++){
+       let name = memberArray[i].name;
+       if(listItems[i].textContent.toLowerCase().includes(input)){
+            listItems[i].style.display = "block";
+       }
+       else{
+           listItems[i].style.display = "none";
+       }
+       
+    }
+    
+});
+
+dropContainer.addEventListener('click', (e)=>{
+    if(e.target.className = "drop-item"){
+        userSearch.value = e.target.textContent;
+    }
+    dropContainer.style.display = "none";
+});
